@@ -13,3 +13,6 @@ func _process(delta):
 	if Input.is_action_pressed("increase_angle"):
 		angle -= degrees_per_second * delta
 		print(angle)
+	if Input.is_action_pressed("decrease_angle"):
+		angle += degrees_per_second * delta
+		print(angle)

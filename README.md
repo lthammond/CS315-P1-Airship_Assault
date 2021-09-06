@@ -35,7 +35,7 @@ After changing gears to a sprite based indicator of angle and strength, I had a 
 - [X] A-2: There is a visual indicator showing the angle at which the projectile will fire.
 - [X] A-3: The projectile's hitting the target is recognized and logged to the console or otherwise indicated.
 
-Witht the completion of the README and tagging for release, I believe I have fully completed everything needed to earn an A for iteration one of project 1.
+With the completion of the README and tagging for release, I believe I have fully completed everything needed to earn an A for the first iteration of project 1.
 
 ## Third-Party Assets
 For the first iteration, I created placeholder assets myself as I intend to focus on the visuals during the next iteration. 

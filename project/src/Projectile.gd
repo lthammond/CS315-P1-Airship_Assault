@@ -24,3 +24,4 @@ func _process(delta):
 	if Input.is_action_just_pressed("launch"):
 		var impulse = Vector2.RIGHT.rotated(deg2rad(angle)) * (strength * 4)
 		apply_impulse(Vector2.ZERO, impulse)
+		$ArrowIndicator.hide()

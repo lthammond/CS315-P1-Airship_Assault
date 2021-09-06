@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var angle = 0
+export var angle = 0
 export var degrees_per_second = 20
 var strength = 25
 export var strength_per_second = 20
@@ -24,3 +24,4 @@ func _process(delta):
 	if Input.is_action_pressed("decrease_strength"):
 		strength -= strength_per_second * delta
 		print(strength)
+		

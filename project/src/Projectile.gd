@@ -1,9 +1,9 @@
 extends RigidBody2D
 
-export var angle = -80
-export var degrees_per_second = 20
-var strength = 25
-export var strength_per_second = 20
+export var angle = 0
+export var degrees_per_second = 30
+var strength = 45
+export var strength_per_second = 30
 
 func _draw():
 	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.white)
@@ -15,7 +15,7 @@ func _process(delta):
 	if Input.is_action_pressed("decrease_angle"):
 		angle += degrees_per_second * delta
 
-	strength = clamp(strength, 0, 100)
+	strength = clamp(strength, 20, 100)
 	if Input.is_action_pressed("increase_strength"):
 		strength += strength_per_second * delta
 		print(strength)

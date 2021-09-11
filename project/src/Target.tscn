@@ -20,7 +20,7 @@ flags = 3
 image = SubResource( 4 )
 size = Vector2( 142, 105 )
 
-[node name="Target" type="RigidBody2D"]
+[node name="AirshipTarget" type="RigidBody2D"]
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true

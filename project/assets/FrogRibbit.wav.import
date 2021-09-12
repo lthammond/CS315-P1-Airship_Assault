@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FrogRibbit.wav-cf3a7d4b6004319b746cdba0086869a6.sample"
+
+[deps]
+
+source_file="res://assets/FrogRibbit.wav"
+dest_files=[ "res://.import/FrogRibbit.wav-cf3a7d4b6004319b746cdba0086869a6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

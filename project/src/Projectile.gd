@@ -22,6 +22,12 @@ func _process(delta):
 		var impulse = Vector2.RIGHT.rotated(deg2rad(angle)) * (strength * 4)
 		apply_impulse(Vector2.ZERO, impulse)
 		
-		$Sprite.texture = load("res://assets/Frog2.png")
-		
 		$ArrowIndicator.hide()
+		
+	change_sprite()
+
+func change_sprite():
+	if linear_velocity != Vector2(0,0):
+		$Sprite.texture = load("res://assets/Frog2.png")
+	else:
+		$Sprite.texture = load("res://assets/Frog1.png")

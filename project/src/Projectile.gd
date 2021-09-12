@@ -5,9 +5,6 @@ var degrees_per_second = 30
 var strength = 45
 var strength_per_second = 30
 
-func _draw():
-	draw_circle(Vector2.ZERO, $CollisionShape2D.shape.radius, Color.white)
-
 func _process(delta):
 	angle = clamp(angle, -90, 0)
 	if Input.is_action_pressed("increase_angle"):

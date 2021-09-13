@@ -29,16 +29,18 @@ func create_target():
 	target.position = Vector2(300, 300)
 	call_deferred("add_child", target)
 	
-	
 func _on_Killbox_body_entered(_body):
 	projectile.free()
+	respawn_Projectile()
+
+func check_Projectile_is_sleeping():
+	sleep_timer +=1
+	if sleep_timer == 100:
+		projectile.call_deferred("free")
+		respawn_Projectile()
+		
+func respawn_Projectile():
 	lives -= 1
 	if lives >= 0:
 		$LifeLabel.text = 'x%d' % lives
 		create_projectile()
-
-func check_Projectile_is_sleeping():
-	sleep_timer +=1
-	print(sleep_timer)
-	if sleep_timer == 100:
-		projectile.call_deferred("free")

@@ -3,7 +3,6 @@ extends Node2D
 var projectile
 
 func _ready():
-
 	create_projectile()
 
 func _on_Projectile_angle_changed(new_angle):
@@ -18,3 +17,7 @@ func create_projectile():
 	call_deferred("add_child", projectile)
 	projectile.connect("angle_changed", self, "_on_Projectile_angle_changed")
 	projectile.connect("strength_changed", self, "_on_Projectile_strength_changed")
+
+
+func _on_Killbox_body_entered(_body):
+	print("Kill")

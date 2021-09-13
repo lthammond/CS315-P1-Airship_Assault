@@ -99,3 +99,5 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killbox"]
 polygon = PoolVector2Array( -200, 1000, 1400, 1000, 1400, 0, 1300, 0, 1300, 900, -200, 900 )
+
+[connection signal="body_entered" from="Killbox" to="." method="_on_Killbox_body_entered"]

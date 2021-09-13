@@ -20,6 +20,7 @@ size = Vector2( 142, 105 )
 
 [node name="AirshipTarget" type="RigidBody2D"]
 collision_layer = 2
+mass = 2.04082
 gravity_scale = 0.0
 contacts_reported = 1
 contact_monitor = true

@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal angle_changed(new_angle)
+
 export var angle = 0
 var degrees_per_second = 30
 var strength = 45
@@ -9,8 +11,10 @@ func _process(delta):
 	angle = clamp(angle, -90, 0)
 	if Input.is_action_pressed("increase_angle"):
 		angle -= degrees_per_second * delta
+		emit_signal("angle_changed", angle)
 	if Input.is_action_pressed("decrease_angle"):
 		angle += degrees_per_second * delta
+		emit_signal("angle_changed", angle)
 
 	strength = clamp(strength, 20, 100)
 	if Input.is_action_pressed("increase_strength"):

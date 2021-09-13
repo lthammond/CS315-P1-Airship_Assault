@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/AirshipTarget.gd" type="Script" id=1]
+[ext_resource path="res://assets/TargetHit.wav" type="AudioStream" id=2]
 
 [sub_resource type="Image" id=4]
 data = {
@@ -28,5 +29,8 @@ polygon = PoolVector2Array( -64, 22.5, -64, 31, -41, 38, -11.5, 53, 35, 53, 56, 
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 3 )
+
+[node name="TargetHitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Target_body_entered"]

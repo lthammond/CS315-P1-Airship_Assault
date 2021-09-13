@@ -4,6 +4,8 @@ var projectile
 var target
 var lives = 3
 var sleep_timer
+var points_per_target = 50
+var total_points = 0
 
 func _ready():
 	create_projectile()
@@ -28,6 +30,7 @@ func create_target():
 	target = load("res://src/AirshipTarget.tscn").instance()
 	target.position = Vector2(300, 300)
 	call_deferred("add_child", target)
+	target.connect("target_hit", self, "on_Target_hit")
 	
 func _on_Killbox_body_entered(_body):
 	projectile.free()
@@ -44,3 +47,7 @@ func respawn_Projectile():
 	if lives >= 0:
 		$LifeLabel.text = 'x%d' % lives
 		create_projectile()
+		
+func on_Target_hit():
+	total_points += points_per_target
+	$ScoreLabel.text = 'Score:%d' % total_points

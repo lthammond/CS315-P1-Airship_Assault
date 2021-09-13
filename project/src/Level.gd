@@ -40,6 +40,7 @@ func check_Projectile_is_sleeping():
 	sleep_timer +=1
 	if sleep_timer == 100:
 		projectile.call_deferred("free")
+		spawn_Explosion(projectile.position)
 		respawn_Projectile()
 		
 func respawn_Projectile():
@@ -51,3 +52,9 @@ func respawn_Projectile():
 func on_Target_hit():
 	total_points += points_per_target
 	$ScoreLabel.text = 'Score:%d' % total_points
+
+func spawn_Explosion(position):
+	var explosion = load("res://src/Explosion.tscn").instance()
+	explosion.position = position
+	explosion.one_shot = true
+	add_child(explosion)

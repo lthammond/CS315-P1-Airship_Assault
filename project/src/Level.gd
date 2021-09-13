@@ -27,4 +27,5 @@ func create_target():
 	
 
 func _on_Killbox_body_entered(_body):
-	print("Kill")
+	projectile.free()
+	create_projectile()

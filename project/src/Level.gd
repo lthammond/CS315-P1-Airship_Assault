@@ -33,6 +33,7 @@ func create_target():
 	target.connect("target_hit", self, "on_Target_hit")
 	
 func _on_Killbox_body_entered(_body):
+	spawn_Explosion(projectile.position)
 	projectile.free()
 	respawn_Projectile()
 
@@ -58,10 +59,8 @@ func spawn_Explosion(position):
 	var explosion = load("res://src/Explosion.tscn").instance()
 	explosion.position = position
 	explosion.one_shot = true
-	
 	add_child(explosion)
 	
-
 
 func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)

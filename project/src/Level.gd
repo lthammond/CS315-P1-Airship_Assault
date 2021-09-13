@@ -2,6 +2,7 @@ extends Node2D
 
 var projectile
 var target
+var lives = 3
 
 func _ready():
 	create_projectile()
@@ -12,7 +13,7 @@ func _on_Projectile_angle_changed(new_angle):
 
 func _on_Projectile_strength_changed(new_strength):
 	$StrengthLabel.text = 'Strength:%d' % new_strength
-
+	
 func create_projectile():
 	projectile = load("res://src/Projectile.tscn").instance()
 	projectile.position = Vector2(80, 550)
@@ -25,7 +26,9 @@ func create_target():
 	target.position = Vector2(300, 300)
 	call_deferred("add_child", target)
 	
-
 func _on_Killbox_body_entered(_body):
 	projectile.free()
-	create_projectile()
+	lives -= 1
+	if lives >= 0:
+		$LifeLabel.text = 'x%d' % lives
+		create_projectile()

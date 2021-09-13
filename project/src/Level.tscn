@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/placeholderTile.png" type="Texture" id=2]
-[ext_resource path="res://src/AirshipTarget.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/BrickTile.png" type="Texture" id=4]
 [ext_resource path="res://assets/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://src/Level.gd" type="Script" id=6]
@@ -71,9 +70,6 @@ script = ExtResource( 6 )
 tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0 )
-
-[node name="Target" parent="." instance=ExtResource( 3 )]
-position = Vector2( 600.725, 116.349 )
 
 [node name="AngleLabel" type="Label" parent="."]
 margin_top = 35.0

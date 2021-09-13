@@ -46,6 +46,8 @@ func check_Projectile_is_sleeping():
 		
 func respawn_Projectile():
 	lives -= 1
+	_on_Projectile_angle_changed(0)
+	_on_Projectile_strength_changed(45)
 	if lives >= 0:
 		$LifeLabel.text = 'x%d' % lives
 		create_projectile()

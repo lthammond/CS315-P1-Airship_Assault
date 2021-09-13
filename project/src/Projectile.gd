@@ -2,12 +2,14 @@ extends RigidBody2D
 
 signal angle_changed(new_angle)
 signal strength_changed(new_strength)
+signal sleeping()
 
 export var angle = 0
 var degrees_per_second = 30
 var strength = 45
 var strength_per_second = 30
 var launched = false
+var sleep_timer = 0
 
 func _process(delta):
 	angle = clamp(angle, -90, 0)
@@ -32,6 +34,7 @@ func _process(delta):
 		$JumpSound.play()
 		$ArrowIndicator.hide()
 		launched = true
+		check_for_movement()
 		
 	change_sprite()
 
@@ -40,3 +43,6 @@ func change_sprite():
 		$Sprite.texture = load("res://assets/Frog2.png")
 	else:
 		$Sprite.texture = load("res://assets/Frog1.png")
+
+func check_for_movement():
+	emit_signal("sleeping")

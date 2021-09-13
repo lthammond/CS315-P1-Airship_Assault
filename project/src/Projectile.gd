@@ -43,3 +43,4 @@ func change_sprite():
 
 func _on_Killbox_body_entered(body):
 	print("Kill")
+	

@@ -40,3 +40,6 @@ func change_sprite():
 		$Sprite.texture = load("res://assets/Frog2.png")
 	else:
 		$Sprite.texture = load("res://assets/Frog1.png")
+
+func _on_Killbox_body_entered(body):
+	print("Kill")

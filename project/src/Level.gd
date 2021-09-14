@@ -43,7 +43,7 @@ func check_Projectile_is_sleeping():
 		spawn_Explosion(projectile.position)
 		projectile.call_deferred("free")
 		respawn_Projectile()
-		
+
 func respawn_Projectile():
 	lives -= 1
 	_on_Projectile_angle_changed(0)
@@ -51,7 +51,7 @@ func respawn_Projectile():
 	if lives >= 0:
 		$LifeLabel.text = 'x%d' % lives
 		create_projectile()
-		
+
 func on_Target_hit():
 	total_points += points_per_target
 	$ScoreLabel.text = 'Score:%d' % total_points
@@ -63,7 +63,6 @@ func spawn_Explosion(position):
 	explosion.one_shot = true
 	add_child(explosion)
 	
-
 func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
 	target.free()

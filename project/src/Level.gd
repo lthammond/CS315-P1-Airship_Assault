@@ -28,7 +28,7 @@ func create_projectile():
 
 func create_target():
 	target = load("res://src/AirshipTarget.tscn").instance()
-	target.position = Vector2(300, 300)
+	target.position = Vector2(rand_range(300, 1000), rand_range(150, 400))
 	call_deferred("add_child", target)
 	target.connect("target_hit", self, "on_Target_hit")
 	
@@ -67,4 +67,8 @@ func spawn_Explosion(position):
 func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
 	target.free()
+	create_target()
+	# create_target() is called here just so another airship will spawn for
+	# simple testing, as I have decided not to work on an airship respawn
+	# system this iteration.
 	

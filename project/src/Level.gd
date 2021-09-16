@@ -18,7 +18,7 @@ func create_projectile():
 	call_deferred("add_child", projectile)
 	projectile.connect("angle_changed", self, "_on_Projectile_angle_changed")
 	projectile.connect("strength_changed", self, "_on_Projectile_strength_changed")
-	projectile.connect("sleeping", self, "check_Projectile_is_sleeping")
+	projectile.connect("movement_stopped", self, "check_Projectile_is_sleeping")
 	sleep_timer = 0
 
 

@@ -2,13 +2,14 @@ extends RigidBody2D
 
 signal angle_changed(new_angle)
 signal strength_changed(new_strength)
-signal sleeping()
+signal movement_stopped()
 
 export var angle = 0
 var degrees_per_second = 30
 var strength = 45
 var strength_per_second = 30
 var launched = false
+
 
 func _process(delta):
 	angle = clamp(angle, -90, 0)
@@ -39,12 +40,14 @@ func _process(delta):
 	
 	change_sprite()
 
+
 func change_sprite():
 	if linear_velocity >= Vector2(0.1,0.1):
 		$Sprite.texture = load("res://assets/Frog2.png")
 	else:
 		$Sprite.texture = load("res://assets/Frog1.png")
 
+
 func check_projectile_movement():
 		if linear_velocity <= Vector2(0.1,0.1):
-			emit_signal("sleeping")
+			emit_signal("movement_stopped")

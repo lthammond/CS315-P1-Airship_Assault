@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Projectile.gd" type="Script" id=1]
-[ext_resource path="res://assets/placeholderArrow.png" type="Texture" id=2]
+[ext_resource path="res://assets/Arrow.png" type="Texture" id=2]
 [ext_resource path="res://src/ArrowIndicator.gd" type="Script" id=3]
 [ext_resource path="res://assets/Frog1.png" type="Texture" id=4]
 [ext_resource path="res://assets/FrogRibbit.wav" type="AudioStream" id=5]
@@ -22,7 +22,8 @@ show_behind_parent = true
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="ArrowIndicator"]
-position = Vector2( 30, 0 )
+position = Vector2( 45, 0 )
+scale = Vector2( 1, 0.75 )
 texture = ExtResource( 2 )
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]

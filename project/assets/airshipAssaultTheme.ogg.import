@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/airshipAssaultTheme.ogg-5ef480191bd7f46366a6a3bb1e01ef12.oggstr"
+
+[deps]
+
+source_file="res://assets/airshipAssaultTheme.ogg"
+dest_files=[ "res://.import/airshipAssaultTheme.ogg-5ef480191bd7f46366a6a3bb1e01ef12.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

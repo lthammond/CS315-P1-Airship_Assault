@@ -89,3 +89,8 @@ func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
 	target.free()
 	create_target()
+
+
+func _on_ReturnToTitleButton_pressed():
+	if get_tree().change_scene("res://src/Title.tscn") != OK:
+		print ("An unexpected error occured while trying to switch to Title scene")

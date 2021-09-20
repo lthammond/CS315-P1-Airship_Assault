@@ -41,12 +41,13 @@ func destroy_Projectile():
 	spawn_Explosion(projectile.position)
 	projectile.call_deferred("free")
 
+
 func respawn_Projectile():
 	lives -= 1
 	_on_Projectile_angle_changed(0)
 	_on_Projectile_strength_changed(45)
 	if lives >= 0:
-		$LifeLabel.text = 'x%d' % lives
+		$HUD/LifeLabel.text = 'x%d' % lives
 		create_projectile()
 	else:
 		destroy_Projectile()
@@ -54,7 +55,7 @@ func respawn_Projectile():
 		$AnimationPlayer.play("Rise")
 		target.hide()
 		yield(get_tree().create_timer(2.0), "timeout")
-		$ReturnToTitleButton.show()
+		$HUD/ReturnToTitleButton.show()
 
 
 func spawn_Explosion(position):
@@ -67,16 +68,16 @@ func spawn_Explosion(position):
 func on_Target_hit():
 	var points_per_target = 50
 	total_points += points_per_target
-	$ScoreLabel.text = 'Score:%d' % total_points
+	$HUD/ScoreLabel.text = 'Score:%d' % total_points
 	$AirshipExplosionTimer.start()
 
 
 func _on_Projectile_angle_changed(new_angle):
-	$AngleLabel.text = 'Angle:%d' % -new_angle
+	$HUD/AngleLabel.text = 'Angle:%d' % -new_angle
 
 
 func _on_Projectile_strength_changed(new_strength):
-	$StrengthLabel.text = 'Strength:%d' % new_strength
+	$HUD/StrengthLabel.text = 'Strength:%d' % new_strength
 
 
 func _on_Killbox_body_entered(_body):
@@ -88,5 +89,4 @@ func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
 	target.free()
 	create_target()
-
-
+	

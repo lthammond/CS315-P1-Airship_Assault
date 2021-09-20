@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Title.gd" type="Script" id=2]
+[ext_resource path="res://assets/titleBackground.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -52,5 +53,11 @@ text = "Defend!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1202.0
+margin_bottom = 655.0
+texture = ExtResource( 3 )
+stretch_mode = 1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]

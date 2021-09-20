@@ -48,6 +48,8 @@ func respawn_Projectile():
 		$LifeLabel.text = 'x%d' % lives
 		create_projectile()
 	else:
+		destroy_Projectile()
+		yield(get_tree().create_timer(1.0), "timeout")
 		if get_tree().change_scene("res://src/GameOver.tscn") != OK:
 			print ("An unexpected error occured while trying to switch to" + 
 					"Game Over scene")

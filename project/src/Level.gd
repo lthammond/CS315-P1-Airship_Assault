@@ -2,7 +2,7 @@ extends Node2D
 
 var projectile
 var target
-var lives = 1
+var lives = 3
 var sleep_timer
 var total_points = 0
 
@@ -10,6 +10,7 @@ var total_points = 0
 func _ready():
 	create_projectile()
 	create_target()
+	randomize()
 
 
 func create_projectile():
@@ -86,6 +87,3 @@ func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
 	target.free()
 	create_target()
-	# create_target() is called here just so another airship will spawn for
-	# simple testing, as I have decided not to work on an airship respawn
-	# system this iteration.

@@ -26,6 +26,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1202.0
+margin_bottom = 655.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="NameLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -53,11 +62,5 @@ text = "Defend!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1202.0
-margin_bottom = 655.0
-texture = ExtResource( 3 )
-stretch_mode = 1
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]

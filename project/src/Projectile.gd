@@ -29,7 +29,7 @@ func _process(delta):
 		emit_signal("strength_changed", strength)
 
 	if Input.is_action_just_pressed("launch") and launched == false:
-		var impulse = Vector2.RIGHT.rotated(deg2rad(angle)) * (strength * 5)
+		var impulse = Vector2.RIGHT.rotated(deg2rad(angle)) * (strength * 4)
 		apply_impulse(Vector2.ZERO, impulse)
 		$JumpSound.play()
 		$ArrowIndicator.hide()

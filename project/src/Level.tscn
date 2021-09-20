@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/LifeSprite.png" type="Texture" id=1]
 [ext_resource path="res://assets/placeholderTile.png" type="Texture" id=2]
@@ -6,11 +6,12 @@
 [ext_resource path="res://assets/BrickTile.png" type="Texture" id=4]
 [ext_resource path="res://assets/PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://src/Level.gd" type="Script" id=6]
+[ext_resource path="res://assets/wall.png" type="Texture" id=7]
 
-[sub_resource type="ConvexPolygonShape2D" id=8]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="TileSet" id=3]
@@ -24,14 +25,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 8 )
+0/shape = SubResource( 1 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -45,14 +46,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 9 )
+1/shape = SubResource( 2 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -71,6 +72,25 @@ font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 48
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=8]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wall:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 4.2871, 4.2871 ),
+"update": 0,
+"values": [ Vector2( 607.997, 1054.14 ), Vector2( 607.997, 384.02 ) ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
 font_data = ExtResource( 5 )
 
 [node name="Level" type="Node2D"]
@@ -144,6 +164,29 @@ margin_right = 1200.0
 margin_bottom = 600.0
 texture = ExtResource( 3 )
 stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wall" type="Sprite" parent="."]
+position = Vector2( 607.997, 1054.14 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Rise = SubResource( 8 )
+
+[node name="ReturnToTitleButton" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 340.0
+margin_top = 606.0
+margin_right = 864.0
+margin_bottom = 644.0
+custom_fonts/font = SubResource( 9 )
+text = "Return To Title!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -51,9 +51,10 @@ func respawn_Projectile():
 	else:
 		destroy_Projectile()
 		yield(get_tree().create_timer(1.0), "timeout")
-		if get_tree().change_scene("res://src/GameOver.tscn") != OK:
-			print ("An unexpected error occured while trying to switch to" + 
-					"Game Over scene")
+		$AnimationPlayer.play("Rise")
+		target.hide()
+		yield(get_tree().create_timer(2.0), "timeout")
+		$ReturnToTitleButton.show()
 
 
 func spawn_Explosion(position):
@@ -87,3 +88,5 @@ func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
 	target.free()
 	create_target()
+
+

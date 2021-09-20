@@ -2,7 +2,7 @@ extends Node2D
 
 var projectile
 var target
-var lives = 3
+var lives = 1
 var sleep_timer
 var total_points = 0
 
@@ -44,6 +44,10 @@ func respawn_Projectile():
 	if lives >= 0:
 		$LifeLabel.text = 'x%d' % lives
 		create_projectile()
+	else:
+		if get_tree().change_scene("res://src/GameOver.tscn") != OK:
+			print ("An unexpected error occured while trying to switch to" + 
+					"Game Over scene")
 
 
 func spawn_Explosion(position):

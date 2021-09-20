@@ -1,8 +1,44 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="TextureRect" type="TextureRect"]
-margin_right = 40.0
-margin_bottom = 40.0
+[ext_resource path="res://assets/background.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/wall.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Rise"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Wall:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 4.2871, 4.2871 ),
+"update": 0,
+"values": [ Vector2( 607.997, 1054.14 ), Vector2( 607.997, 384.02 ) ]
+}
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_right = 1200.0
+margin_bottom = 600.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wall" type="Sprite" parent="."]
+position = Vector2( 607.997, 1054.14 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Rise = SubResource( 1 )

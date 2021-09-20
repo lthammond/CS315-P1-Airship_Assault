@@ -32,10 +32,13 @@ func create_target():
 func check_Projectile_is_sleeping():
 	sleep_timer +=1
 	if sleep_timer == 100:
-		spawn_Explosion(projectile.position)
-		projectile.call_deferred("free")
+		destroy_Projectile()
 		respawn_Projectile()
 
+
+func destroy_Projectile():
+	spawn_Explosion(projectile.position)
+	projectile.call_deferred("free")
 
 func respawn_Projectile():
 	lives -= 1
@@ -73,8 +76,7 @@ func _on_Projectile_strength_changed(new_strength):
 
 
 func _on_Killbox_body_entered(_body):
-	spawn_Explosion(projectile.position)
-	projectile.free()
+	destroy_Projectile()
 	respawn_Projectile()
 
 

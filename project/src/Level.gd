@@ -56,6 +56,7 @@ func respawn_Projectile():
 		target.hide()
 		yield(get_tree().create_timer(2.0), "timeout")
 		$HUD/ReturnToTitleButton.show()
+		$HUD/GameOverLabel.show()
 
 
 func spawn_Explosion(position):

@@ -20,7 +20,7 @@ func create_projectile():
 	call_deferred("add_child", projectile)
 	projectile.connect("angle_changed", self, "_on_Projectile_angle_changed")
 	projectile.connect("strength_changed", self, "_on_Projectile_strength_changed")
-	projectile.connect("movement_stopped", self, "check_Projectile_is_sleeping")
+	projectile.connect("movement_stopped", self, "check_projectile_is_sleeping")
 	sleep_timer = 0
 
 
@@ -28,7 +28,7 @@ func create_target():
 	target = load("res://src/AirshipTarget.tscn").instance()
 	target.position = Vector2(rand_range(300, 1000), rand_range(150, 400))
 	call_deferred("add_child", target)
-	target.connect("target_hit", self, "on_Target_hit")
+	target.connect("target_hit", self, "_on_Target_hit")
 
 
 func create_extra_life():
@@ -38,19 +38,19 @@ func create_extra_life():
 	extra_life.connect("extra_life_obtained", self, "_on_extra_life_obtained")
 
 
-func check_Projectile_is_sleeping():
+func check_projectile_is_sleeping():
 	sleep_timer += 1
 	if sleep_timer == 100:
-		destroy_Projectile()
-		respawn_Projectile()
+		destroy_projectile()
+		respawn_projectile()
 
 
-func destroy_Projectile():
-	spawn_Explosion(projectile.position)
+func destroy_projectile():
+	spawn_explosion(projectile.position)
 	projectile.call_deferred("free")
 
 
-func respawn_Projectile():
+func respawn_projectile():
 	lives -= 1
 	_on_Projectile_angle_changed(0)
 	_on_Projectile_strength_changed(45)
@@ -61,7 +61,7 @@ func respawn_Projectile():
 		roll_for_extra_life_spawn()
 		
 	else:
-		destroy_Projectile()
+		destroy_projectile()
 		
 		yield(get_tree().create_timer(0.5), "timeout")
 		$AnimationPlayer.play("Rise")
@@ -75,7 +75,7 @@ func respawn_Projectile():
 		Jukebox.play_game_over_tune()
 
 
-func spawn_Explosion(position):
+func spawn_explosion(position):
 	var explosion = load("res://src/Explosion.tscn").instance()
 	explosion.position = position
 	explosion.one_shot = true
@@ -93,7 +93,7 @@ func roll_for_extra_life_spawn():
 			extra_life_on_screen = true
 
 
-func on_Target_hit():
+func _on_Target_hit():
 	var points_per_target = 50
 	total_points += points_per_target
 	$HUD/ScoreLabel.text = 'Score:%d' % total_points
@@ -109,12 +109,12 @@ func _on_Projectile_strength_changed(new_strength):
 
 
 func _on_Killbox_body_entered(_body):
-	destroy_Projectile()
-	respawn_Projectile()
+	destroy_projectile()
+	respawn_projectile()
 
 
 func _on_AirshipExplosionTimer_timeout():
-	spawn_Explosion(target.position)
+	spawn_explosion(target.position)
 	target.call_deferred("free")
 	create_target()
 

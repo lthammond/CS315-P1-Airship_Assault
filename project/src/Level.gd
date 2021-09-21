@@ -2,6 +2,7 @@ extends Node2D
 
 var projectile
 var target
+var extra_life
 var lives = 3
 var sleep_timer
 var total_points = 0
@@ -10,6 +11,7 @@ var total_points = 0
 func _ready():
 	create_projectile()
 	create_target()
+	create_extra_life()
 	randomize()
 
 
@@ -28,6 +30,13 @@ func create_target():
 	target.position = Vector2(rand_range(300, 1000), rand_range(150, 400))
 	call_deferred("add_child", target)
 	target.connect("target_hit", self, "on_Target_hit")
+
+
+func create_extra_life():
+	extra_life = load("res://src/ExtraLife.tscn").instance()
+	extra_life.position = Vector2(rand_range(300, 1000), rand_range(150, 400))
+	call_deferred("add_child", extra_life)
+	extra_life.connect("extra_life_obtained", self, "_on_extra_life_obtained")
 
 
 func check_Projectile_is_sleeping():
@@ -91,6 +100,12 @@ func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
 	target.free()
 	create_target()
+
+
+func _on_extra_life_obtained():
+	lives += 1
+	$HUD/LifeLabel.text = 'x%d' % lives
+	extra_life.call_deferred("free")
 
 
 func _on_ReturnToTitleButton_pressed():

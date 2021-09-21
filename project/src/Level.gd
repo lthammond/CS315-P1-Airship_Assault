@@ -56,15 +56,21 @@ func respawn_Projectile():
 	lives -= 1
 	_on_Projectile_angle_changed(0)
 	_on_Projectile_strength_changed(45)
+	
 	if lives >= 0:
 		$HUD/LifeLabel.text = 'x%d' % lives
 		create_projectile()
 		roll_for_extra_life_spawn()
+		
 	else:
 		destroy_Projectile()
+		
 		yield(get_tree().create_timer(0.5), "timeout")
 		$AnimationPlayer.play("Rise")
-		target.hide()
+		target.call_deferred("free")
+		if extra_life_on_screen == true:
+			extra_life.call_deferred("free")
+			
 		yield(get_tree().create_timer(2.0), "timeout")
 		$HUD/ReturnToTitleButton.show()
 		$HUD/GameOverLabel.show()
@@ -82,9 +88,9 @@ func roll_for_extra_life_spawn():
 	if extra_life_on_screen == false:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		var random_number = rng.randi_range(0, 2)
+		var random_number = rng.randi_range(0, 1)
 		print(random_number)
-		if random_number == 2:
+		if random_number == 1:
 			create_extra_life()
 			extra_life_on_screen = true
 
@@ -111,7 +117,7 @@ func _on_Killbox_body_entered(_body):
 
 func _on_AirshipExplosionTimer_timeout():
 	spawn_Explosion(target.position)
-	target.free()
+	target.call_deferred("free")
 	create_target()
 
 

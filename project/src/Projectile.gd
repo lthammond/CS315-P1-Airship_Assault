@@ -4,11 +4,11 @@ signal angle_changed(new_angle)
 signal strength_changed(new_strength)
 signal movement_stopped()
 
-export var angle = 0
-var degrees_per_second = 30
-var strength = 45
-var strength_per_second = 30
-var launched = false
+export var angle := 0
+var degrees_per_second := 30
+var strength := 45
+var strength_per_second := 30
+var launched := false
 
 
 func _process(delta):

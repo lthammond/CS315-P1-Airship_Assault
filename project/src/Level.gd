@@ -13,7 +13,6 @@ func _ready():
 	randomize()
 	create_projectile()
 	create_target()
-	
 
 
 func create_projectile():

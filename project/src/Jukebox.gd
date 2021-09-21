@@ -11,7 +11,3 @@ func play_main_music():
 func play_game_over_tune():
 	$Music.stream = game_over
 	$Music.play()
-
-
-func stop_music():
-	$Music.stop()

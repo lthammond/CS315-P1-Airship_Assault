@@ -87,7 +87,6 @@ func roll_for_extra_life_spawn():
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		var random_number = rng.randi_range(0, 1)
-		print(random_number)
 		if random_number == 1:
 			create_extra_life()
 			extra_life_on_screen = true

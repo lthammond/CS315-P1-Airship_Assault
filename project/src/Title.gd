@@ -1,12 +1,10 @@
 extends Control
 
-
 func _ready():
 	$AnimationPlayer.play("TitleFlyIn")
 	Jukebox.play_main_music()
 	yield(get_tree().create_timer(4.0), "timeout")
 	$PlayButton.show()
-	
 
 
 func _on_PlayButton_pressed():

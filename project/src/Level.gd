@@ -5,14 +5,15 @@ var target
 var extra_life
 var lives = 3
 var sleep_timer
+var extra_life_on_screen = false
 var total_points = 0
 
 
 func _ready():
+	randomize()
 	create_projectile()
 	create_target()
-	create_extra_life()
-	randomize()
+	
 
 
 func create_projectile():
@@ -58,6 +59,7 @@ func respawn_Projectile():
 	if lives >= 0:
 		$HUD/LifeLabel.text = 'x%d' % lives
 		create_projectile()
+		roll_for_extra_life_spawn()
 	else:
 		destroy_Projectile()
 		yield(get_tree().create_timer(0.5), "timeout")
@@ -74,6 +76,17 @@ func spawn_Explosion(position):
 	explosion.position = position
 	explosion.one_shot = true
 	add_child(explosion)
+
+
+func roll_for_extra_life_spawn():
+	if extra_life_on_screen == false:
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var random_number = rng.randi_range(0, 2)
+		print(random_number)
+		if random_number == 2:
+			create_extra_life()
+			extra_life_on_screen = true
 
 
 func on_Target_hit():
@@ -106,6 +119,7 @@ func _on_extra_life_obtained():
 	lives += 1
 	$HUD/LifeLabel.text = 'x%d' % lives
 	extra_life.call_deferred("free")
+	extra_life_on_screen = false
 
 
 func _on_ReturnToTitleButton_pressed():

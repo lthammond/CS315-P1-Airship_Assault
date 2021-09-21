@@ -3,11 +3,10 @@ extends Node2D
 var projectile
 var target
 var extra_life
-var lives = 3
+var lives := 3
 var sleep_timer
-var extra_life_on_screen = false
-var total_points = 0
-
+var extra_life_on_screen := false
+var total_points := 0
 
 func _ready():
 	randomize()
@@ -40,7 +39,7 @@ func create_extra_life():
 
 
 func check_Projectile_is_sleeping():
-	sleep_timer +=1
+	sleep_timer += 1
 	if sleep_timer == 100:
 		destroy_Projectile()
 		respawn_Projectile()

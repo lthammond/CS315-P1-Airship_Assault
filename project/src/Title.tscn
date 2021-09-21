@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Title.gd" type="Script" id=2]
-[ext_resource path="res://assets/titleBackground.png" type="Texture" id=3]
+[ext_resource path="res://assets/TitleBackground.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 56

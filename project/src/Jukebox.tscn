@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Jukebox.gd" type="Script" id=1]
-[ext_resource path="res://assets/airshipAssaultTheme.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/AirshipAssaultTheme.ogg" type="AudioStream" id=2]
 
 [node name="MusicController" type="Node"]
 script = ExtResource( 1 )

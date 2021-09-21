@@ -92,7 +92,7 @@ tile_data = PoolIntArray( 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0
 polygon = PoolVector2Array( -200, 1000, 1400, 1000, 1400, 0, 1300, 0, 1300, 900, -200, 900 )
 
 [node name="AirshipExplosionTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="."]

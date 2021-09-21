@@ -57,6 +57,7 @@ func respawn_Projectile():
 		yield(get_tree().create_timer(2.0), "timeout")
 		$HUD/ReturnToTitleButton.show()
 		$HUD/GameOverLabel.show()
+		Jukebox.play_game_over_tune()
 
 
 func spawn_Explosion(position):
